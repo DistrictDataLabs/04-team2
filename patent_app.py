@@ -1,7 +1,9 @@
 from flask import Flask
 from sim import similarity 
+from summarize_app import summarize_app
 
 app = Flask(__name__)
+app.register_blueprint(summarize_app)
 
 @app.route("/hello")
 @app.route("/hello/<name>")
@@ -18,5 +20,5 @@ def test():
 
 if __name__ == "__main__":
     app.debug = False
-    #app.run(host='0.0.0.0.')
-    app.run(debug=True)
+    app.run(host='0.0.0.0.')
+    #app.run(debug=True)
